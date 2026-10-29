@@ -46,12 +46,12 @@ export function HeroSection() {
                 View my projects
                 <ArrowRight className="h-4 w-4" />
               </a>
-              {profile.cvUrl ? (
-                <a href={profile.cvUrl} download className="btn-secondary">
+              {profile.cvs.map(({ label, url }) => (
+                <a key={url} href={url} download className="btn-secondary">
                   <Download className="h-4 w-4" />
-                  Download CV
+                  {label}
                 </a>
-              ) : null}
+              ))}
               <div className="flex items-center gap-2">
                 <a
                   href={profile.github}

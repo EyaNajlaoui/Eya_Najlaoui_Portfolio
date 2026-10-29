@@ -14,10 +14,13 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/eya-najlaoui/',
   photo: '/images/eya-najlaoui.webp',
   /**
-   * Put your CV PDF in the `public/` folder with exactly this name.
-   * Leave empty ('') to hide the "Download CV" buttons.
+   * CV PDFs live in the `public/` folder with exactly these names.
+   * Leave the list empty ([]) to hide the "Download CV" buttons.
    */
-  cvUrl: '/Eya_Najlaoui_CV.pdf',
+  cvs: [
+    { label: 'CV (EN)', url: '/Eya_Najlaoui_CV_EN.pdf' },
+    { label: 'CV (FR)', url: '/Eya_Najlaoui_CV_FR.pdf' },
+  ],
 };
 
 export const navItems: NavItem[] = [

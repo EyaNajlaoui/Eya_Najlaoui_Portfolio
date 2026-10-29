@@ -35,12 +35,12 @@ export function ContactSection() {
               <Mail className="h-4 w-4" />
               Send me an email
             </a>
-            {profile.cvUrl ? (
-              <a href={profile.cvUrl} download className="btn-secondary">
+            {profile.cvs.map(({ label, url }) => (
+              <a key={url} href={url} download className="btn-secondary">
                 <Download className="h-4 w-4" />
-                Download CV
+                {label}
               </a>
-            ) : null}
+            ))}
           </div>
 
           <ul className="mt-10 grid gap-3 text-left sm:grid-cols-3">
