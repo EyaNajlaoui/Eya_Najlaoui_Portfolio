@@ -1,0 +1,20 @@
+# Dependencies & build output
+node_modules
+dist
+*.tsbuildinfo
+
+# Secrets — never commit these
+.env
+.env.local
+.env.*.local
+
+# Local AI tool configs (may contain API keys)
+opencode.json
+.opencode/
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

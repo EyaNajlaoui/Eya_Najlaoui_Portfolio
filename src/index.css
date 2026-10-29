@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --accent-text: 148 27 80; /* #941B50, 8.3:1 on white */
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --accent-text: 236 102 154; /* #EC669A, 6.5:1 on #09090B */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* anchors land below the sticky navbar */
+  }
+
+  body {
+    @apply bg-white font-body text-zinc-900 antialiased transition-colors duration-300;
+  }
+
+  html.dark body {
+    @apply bg-darkBg text-zinc-50;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+
+  /* Visible keyboard focus (accessibility) */
+  a:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible {
+    @apply outline-none ring-2 ring-accentText ring-offset-2 ring-offset-white dark:ring-offset-darkBg;
+  }
+
+  ::selection {
+    background: rgba(148, 27, 80, 0.35);
+    color: #fafafa;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-6xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .glass-card {
+    @apply rounded-3xl border border-zinc-200 bg-white/90 shadow-soft backdrop-blur-xl;
+  }
+
+  .dark .glass-card {
+    @apply border-white/10 bg-white/[0.04] shadow-none;
+  }
+
+  .chip {
+    @apply rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[0.8rem] text-zinc-700;
+  }
+
+  .dark .chip {
+    @apply border-white/10 bg-white/5 text-zinc-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-accentHover;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:text-accentText;
+  }
+
+  .dark .btn-secondary {
+    @apply border-white/10 bg-white/5 text-zinc-100;
+  }
+
+  .btn-small {
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-zinc-200 bg-white px-3.5 py-2 text-sm font-medium text-zinc-800 transition duration-300 hover:border-accent/40 hover:text-accentText;
+  }
+
+  .dark .btn-small {
+    @apply border-white/10 bg-white/5 text-zinc-100;
+  }
+}
